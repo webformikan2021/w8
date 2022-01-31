@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>デジタル時計</title>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        if ( hour < 10 ) hour = "0" + hour;
+        if ( minute < 10 ) minute = "0" + minute;
+        if ( second < 10 ) second = "0" + second;
+        document.getElementById('myClock').innerHTML = hour+":"+minute+":"+second;
+      }
+    function start() {
+    updateClock();
+    setTimeout("start();",1000);
+}
+    </script>
+    <style>
+     .box_head{
+        width:200px;
+        border: solid 3px #000000;
+        background-color: pink;
+        margin:0 auto;
+    }
+   </style>
+  </head>
+  <body onload="start();">
+    <h1 align="center">デジタル時計</h1>
+   <div class="box_head">
+    <div id="myClock" align="center"
+        style="font:bold 40pt Times New Roman; color:green;">
+    </div>
+    </div>
+  </body>
+</html>
